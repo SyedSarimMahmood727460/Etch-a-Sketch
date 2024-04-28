@@ -1,0 +1,28 @@
+
+body{
+    margin: 0;
+    padding: 0;
+}
+.Container{
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px;
+    width: 800px; 
+    height: 800px; 
+    margin: 50PX;
+    padding: 20px;
+    border: 2px solid #ccc;
+    
+}
+
+.content{
+    background-color: red;
+    border: 1px solid green;
+    box-sizing: border-box;
+    flex: 0 0 calc(100%/16);
+    
+}
+.content:hover {
+    background-color: lightblue;
+  }
