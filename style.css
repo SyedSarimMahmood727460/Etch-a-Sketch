@@ -2,27 +2,53 @@
 body{
     margin: 0;
     padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Buttons{
+    height: 100px;
+    width: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+button{
+    padding: 5px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    border: 3px solid #eee;
+    background-color: lightblue;
+    border-radius: 10%;
+}
+h1{
+    font-size: 70px;
+    text-align: center;
+}
+.Layout{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    height: 90%;
+    width: 50%;
+    background-color: pink;
 }
 .Container{
-
+    
     display: flex;
     flex-wrap: wrap;
     gap: 0px;
-    width: 800px; 
+    width: 60%; 
     height: 800px; 
-    margin: 50PX;
-    padding: 20px;
-    border: 2px solid #ccc;
+    margin: 50px;
+    padding: 10px;
+    background: black;
     
 }
 
 .content{
-    background-color: red;
-    border: 1px solid green;
-    box-sizing: border-box;
-    flex: 0 0 calc(100%/16);
-    
+    background-color: white;
 }
-.content:hover {
-    background-color: lightblue;
-  }

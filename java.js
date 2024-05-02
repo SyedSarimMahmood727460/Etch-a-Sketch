@@ -1,43 +1,79 @@
 
 const container = document.querySelector(".Container");
-
-var xCoordinate =16
-var yCoordinate=16
-
-function setnewGrid()
-{
-    xCoordinate = prompt("Enter the x-coordinate:")
-    yCoordinate = prompt("Enter the y-coordinate:")
-    for (let index = 0; index < xCoordinate; index++) 
+    for (let index = 0; index < 16*16; index++) 
     {
-        for (let index1 = 0; index1 < yCoordinate; index1++) {
+        const content = document.createElement("div");
+        content.classList.add("content");
+        content.style.flexGrow = '0';
+        content.style.flexShrink = '0';
+        content.style.flexBasis = 'calc(100%/'+16+')';
+        container.appendChild(content);
+    }
+
+
+
+function setnewGrid(button)
+{
+    deleteOldgrids()
+    if(container.children.length===0)
+    {
+        console.log("Empty")
+        var Coordinate= parseFloat(button.value)
+        for (let index = 0; index < Coordinate * Coordinate; index++) 
+        {
             const content = document.createElement("div");
             content.classList.add("content");
+            content.style.flexGrow = '0';
+            content.style.flexShrink = '0';
+            content.style.flexBasis = 'calc(100%/'+Coordinate+')';
             container.appendChild(content);
         }
     }
-}
-
-
-for (let index = 0; index < xCoordinate; index++) 
-{
-    for (let index1 = 0; index1 < yCoordinate; index1++) {
-        const content = document.createElement("div");
-        content.classList.add("content");
-        container.appendChild(content);
-    }
+    Draw()
 }
 
 function Reset()
 {
-    var childrenToremove=Array.from(document.getElementsByClassName("content"))
+    var childrenToremove=document.querySelectorAll(".content")
 
-    for (let index = 0; index < childrenToremove.length; index++) 
+    childrenToremove.forEach((child) =>
     {
-        container.removeChild(childrenToremove[index])
-    }
+        child.style.backgroundColor="white"
+    })
 }
 
+function Draw()
+{
+    var childrenToremove=document.querySelectorAll(".content")
+    var isDrawing=false
+    container.addEventListener('mousedown',function(){
+        isDrawing=true
+    })
+    childrenToremove.forEach(div=>
+    {
+        div.addEventListener('mousemove',function()
+        {
+            if(isDrawing)
+            {
+                this.style.backgroundColor="red"
+            }
+        })
+    })
 
+    container.addEventListener('mouseup',function(){
+        isDrawing=false
+    })
+
+    document.querySelector("body").addEventListener('mouseup',function(){
+        isDrawing=false
+    })
+}
+
+function deleteOldgrids()
+{
+    container.innerHTML = '';
+}
+
+Draw()
 
 

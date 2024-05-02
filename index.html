@@ -3,13 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <button onclick="setnewGrid()">Grid Size</button>
-    <button onclick="Reset()">Reset</button>
-    <div class="Container" ></div>
+    
+    <div class="Layout">
+        <h1>Etch-a-Sketch</h1>
+        <div class="Buttons">
+            <button onclick="Reset()">Reset</button>
+            <button value="16" onclick="setnewGrid(this)">16 X 16</button>
+            <button value="32" onclick="setnewGrid(this)">32 x 32</button>
+            <button value="64" onclick="setnewGrid(this)">64 x 64</button>
+        </div>
+        
+        <div class="Container" ></div>
+    </div>
+    
 
     <script src="./java.js"></script>
     
